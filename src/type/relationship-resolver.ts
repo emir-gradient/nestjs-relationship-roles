@@ -5,17 +5,12 @@
  */
 export interface RelationshipResolver<User, RelatedObject, RelationshipRole> {
   /**
-   * Return RelationRoles that this resolver is responsible to handle.
+   * Return Relationship Roles that this resolver is responsible to recognize.
    */
-  getSupportedRelations(): Promise<RelationshipRole[]>;
+  getSupportedRelationships(): Promise<RelationshipRole[]>;
 
   /**
-   * Retrieve related object from the request data.
-   */
-  getRelatedObject(request: any): Promise<RelatedObject>;
-
-  /**
-   * Calculate and provide relation between user and related object.
+   * Determine and provide relationship between user and related object.
    */
   getRelations(user: User, relatedObject: RelatedObject): Promise<RelationshipRole[]>;
 }
