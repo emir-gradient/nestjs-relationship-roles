@@ -8,8 +8,8 @@ export class RelationshipResolverContainer {
   private relationshipResolvers: RelationshipResolver<unknown, unknown, unknown>[] = [];
   private registeredRoles: Set<unknown> = new Set<unknown>();
 
-  async findRelationshipResolver<R>(requiredRelations: R[]): Promise<RelationshipResolver<unknown, unknown, R> | null> {
-    let result = null;
+  async findRelationshipResolvers<R>(requiredRelations: R[]): Promise<RelationshipResolver<unknown, unknown, R>[]> {
+    const result = [];
 
     for (const relationshipResolver of this.relationshipResolvers as RelationshipResolver<unknown, unknown, R>[]) {
       const supportedRelations = await relationshipResolver.getSupportedRelationships();
@@ -19,8 +19,7 @@ export class RelationshipResolverContainer {
       });
 
       if (matches) {
-        result = relationshipResolver;
-        break;
+        result.push(relationshipResolver);
       }
     }
 
