@@ -1,6 +1,6 @@
 import { RelationshipResolver } from '../../type/relationship-resolver';
-import { BlogUser, Post } from "./data-types";
-import { BlogRelationshipRole } from "./roles";
+import { BlogUser, Post } from './data-types';
+import { BlogRelationshipRole } from './roles';
 
 export class PostRelationshipResolver implements RelationshipResolver<BlogUser, Post, BlogRelationshipRole> {
   getRelations(user: BlogUser, relatedObject: Post): Promise<BlogRelationshipRole[]> {
