@@ -1,0 +1,24 @@
+{
+  "name": "nestjs-relationship-roles",
+  "version": "1.0.0",
+  "description": "Library to use with NestJS to utilize relationship roles authorization.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emir-gradient/nestjs-relationship-roles.git"
+  },
+  "keywords": [],
+  "author": "Gradient Software Development <info@gradient.ba>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/emir-gradient/nestjs-relationship-roles/issues"
+  },
+  "homepage": "https://github.com/emir-gradient/nestjs-relationship-roles#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
+}
