@@ -5,7 +5,6 @@ import { RelationshipResolverContainer } from '../relationship-resolver/relation
  * between User and Related entity.
  */
 export class RelationshipAuthorizationService {
-
   /**
    * Dependency Injection.
    */
