@@ -1,8 +1,24 @@
 import { RelationshipResolverContainer } from '../relationship-resolver/relationship-resolver.container';
 
+/**
+ * Authorization service that performs authorization based on relationship
+ * between User and Related entity.
+ */
 export class RelationshipAuthorizationService {
+
+  /**
+   * Dependency Injection.
+   */
   constructor(private relationshipResolverContainer: RelationshipResolverContainer) {}
 
+  /**
+   * Authorizes if provided user has any of the required roles for provided
+   * related object.
+   *
+   * @param user
+   * @param relatedObject
+   * @param requiredRoles
+   */
   async authorize<User, RelatedObject, RelationshipRole>(
     user: User,
     relatedObject: RelatedObject,

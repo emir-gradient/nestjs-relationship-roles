@@ -5,9 +5,26 @@ import { SupportedRelationshipsOverlapException } from '../exception/supported-r
  * Container that holds all registered relationship resolvers.
  */
 export class RelationshipResolverContainer {
+  /**
+   * Relationship resolver instances.
+   *
+   * @private
+   */
   private relationshipResolvers: RelationshipResolver<unknown, unknown, unknown>[] = [];
+
+  /**
+   * Registered supported roles (to be able to check for overlaps between resolvers).
+   *
+   * @private
+   */
   private registeredRoles: Set<unknown> = new Set<unknown>();
 
+  /**
+   * Finds all relationship resolvers that are capable of resolving at least one
+   * of required relations.
+   *
+   * @param requiredRelations
+   */
   async findRelationshipResolvers<R>(requiredRelations: R[]): Promise<RelationshipResolver<unknown, unknown, R>[]> {
     const result = [];
 
@@ -26,6 +43,11 @@ export class RelationshipResolverContainer {
     return result;
   }
 
+  /**
+   * Adds Relationship Resolver to the container.
+   *
+   * @param relationshipResolver
+   */
   async addRelationshipResolver<T, U, V>(relationshipResolver: RelationshipResolver<T, U, V>): Promise<void> {
     const supportedRoles = new Set(await relationshipResolver.getSupportedRelationships());
 
