@@ -4,6 +4,8 @@
   "description": "Library to use with NestJS to utilize relationship roles authorization.",
   "main": "index.ts",
   "scripts": {
+    "prepare" : "npm run build",
+    "prepublishOnly" : "npm test && npm run lint",
     "test": "jest --config jestconfig.json",
     "test:cov": "jest --coverage --config jestconfig.json",
     "build": "tsc",
