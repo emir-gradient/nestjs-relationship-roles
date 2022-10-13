@@ -2,7 +2,7 @@
   "name": "nestjs-relationship-roles",
   "version": "1.0.0",
   "description": "Library to use with NestJS to utilize relationship roles authorization.",
-  "main": "index.ts",
+  "main": "lib/index.js",
   "scripts": {
     "prepare" : "npm run build",
     "prepublishOnly" : "npm test && npm run lint",
